@@ -12,14 +12,14 @@ import {FieldControlService} from '../field-control.service';
 export class DynamicFormComponent implements OnInit {
 
   @Input() field_groups: FieldBase<any>[][] = [];
-  job: FormBuilder;
+  job: FormGroup;
   payLoad = '';
 
   constructor(private fcs: FieldControlService) {
   }
 
   ngOnInit() {
-    this.job = this.fcs.toFormGroup(this.field_groups);
+    this.job = this.fcs.to_form_group(this.field_groups);
   }
 
   onSubmit() {

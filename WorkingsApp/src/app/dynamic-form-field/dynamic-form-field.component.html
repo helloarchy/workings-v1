@@ -1,7 +1,8 @@
-<div [formGroup]="form">
+<div [formGroup]="job">
   <label [attr.for]="field.key">{{field.label}}</label>
 
   <div [ngSwitch]="field.controlType">
+    <p>DEBUG: key = {{field.key}}</p>
     <input *ngSwitchCase="'textbox'" [formControlName]="field.key"
            [id]="field.key" [type]="field.type">
 
