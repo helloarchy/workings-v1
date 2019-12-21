@@ -12,6 +12,8 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DrawingComponent } from './drawing/drawing.component';
 import { ControlComponent } from './control/control.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { DynamicFormFieldComponent } from './dynamic-form-field/dynamic-form-field.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ControlComponent } from './control/control.component';
     CounterComponent,
     FetchDataComponent,
     DrawingComponent,
-    ControlComponent
+    ControlComponent,
+    DynamicFormComponent,
+    DynamicFormFieldComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

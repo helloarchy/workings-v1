@@ -24,6 +24,11 @@
         <Content Remove="$(SpaRoot)**" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+        <None Include="WorkingsApp\src\app\field-base.ts" />
+        <None Include="WorkingsApp\src\app\field-control.service.ts" />
+        <None Include="WorkingsApp\src\app\field-dropdown.ts" />
+        <None Include="WorkingsApp\src\app\field-textbox.ts" />
+        <None Include="WorkingsApp\src\app\form.service.ts" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
