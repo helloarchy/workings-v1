@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FieldControlService } from './field-control.service';
-import {FieldService} from "./form.service";
+import {FieldService} from "./field.service";
 
 @Component({
   selector: 'app-root',
