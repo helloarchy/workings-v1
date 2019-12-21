@@ -1,13 +1,13 @@
 import { Injectable }       from '@angular/core';
 
-import {DropdownField} from './field-dropdown';
-import {FieldBase} from "./field-base";
-import {TextboxField} from "./field-textbox";
+import { DropdownField } from './field-dropdown';
+import { FieldBase }     from './field-base';
+import { TextboxField }  from './field-textbox';
 
 @Injectable()
 export class FieldService {
 
-  // TODO: get from a remote source of form metadata
+  // TODO: get from a remote source of field metadata
   // TODO: make asynchronous
   get_fields() {
 

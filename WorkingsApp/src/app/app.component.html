@@ -1,6 +1,13 @@
 <body>
+  <!-- Top nav -->
   <app-nav-menu></app-nav-menu>
+
+  <!-- Main body -->
   <div class="container">
-    <router-outlet></router-outlet>
+    <!-- Control panel (form) -->
+    <app-dynamic-form [fields]="fields"></app-dynamic-form>
+
+    <!-- Drawing (printable page) -->
+    <app-drawing></app-drawing>
   </div>
 </body>
