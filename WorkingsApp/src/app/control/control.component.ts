@@ -8,34 +8,43 @@ import {FormGroup, FormControl, FormBuilder, Validators, FormArray} from '@angul
 })
 
 export class ControlComponent implements OnInit {
-  profileForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: [''],
-    address: this.fb.group({
-      street: [''],
-      city: [''],
-      state: [''],
-      zip: ['']
+  job = this.fb.group({
+    details: this.fb.group({
+      client: ['', Validators.required],
+      customer: ['', Validators.required],
+      reference: ['', Validators.required],
+      num_blinds: ['', Validators.required]
     }),
-    aliases: this.fb.array([
-      this.fb.control('')
-    ])
+    dimensions: this.fb.group({
+      width: ['', Validators.required],
+      height: ['', Validators.required],
+      num_widths: ['']
+    }),
+    railing: this.fb.group({
+      type: [''],
+      depth: ['']
+    }),
+    stack: this.fb.group({
+      type: [''],
+      folds: ['']
+    })
   });
-
 
   constructor(private fb: FormBuilder) {  }
 
   ngOnInit() {
-
+    this.job.valueChanges.subscribe(
+      new_value => console.log(new_value)
+    )
   }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
+    console.warn(this.job.value);
   }
 
   updateProfile() {
-    this.profileForm.patchValue({
+    this.job.patchValue({
       firstName: 'Nancy',
       address: {
         street: '123 Drew Street'
@@ -44,7 +53,7 @@ export class ControlComponent implements OnInit {
   }
 
   get aliases() {
-    return this.profileForm.get('aliases') as FormArray;
+    return this.job.get('aliases') as FormArray;
   }
 
   addAlias() {
