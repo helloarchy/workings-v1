@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {FieldService} from "./field.service";
+import {FieldBase} from "./field-base";
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,9 @@ import {FieldService} from "./field.service";
 
 export class AppComponent {
   title = 'app';
-  fields: any[];
+  field_groups: FieldBase<any>[][];
 
   constructor(service: FieldService) {
-    this.fields = service.get_fields();
+    this.field_groups = service.get_field_groups();
   }
 }

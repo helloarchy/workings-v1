@@ -7,7 +7,7 @@ import { FieldBase } from './field-base';
 export class FieldControlService {
   constructor() { }
 
-  toFormGroup(fields: FieldBase<any>[] ) {
+  toFormGroup(fields: FieldBase<any>[][] ) {
     let group: any = {};
 
     fields.forEach(field => {
@@ -17,10 +17,3 @@ export class FieldControlService {
     return new FormGroup(group);
   }
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

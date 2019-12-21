@@ -1,12 +1,16 @@
 <div>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
-    <div *ngFor="let field of fields" class="form-row">
-      <app-field [field]="field" [form]="form"></app-field>
+    <!-- Create control form by creating field from each field in the service -->
+    <div *ngFor="field_group of field_groups">
+      <div *ngFor="let field of fields" class="form-row">
+        <app-field [field]="field" [form]="form"></app-field>
+      </div>
     </div>
 
+
     <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
+      <button type="submit" [disabled]="!form.valid">Generate</button>
     </div>
   </form>
 
@@ -14,10 +18,3 @@
     <strong>Saved the following values</strong><br>{{payLoad}}
   </div>
 </div>
-
-
-<!--
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->

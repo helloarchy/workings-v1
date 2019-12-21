@@ -1,16 +1,32 @@
-import { Component, Input, OnInit }  from '@angular/core';
-import { FormGroup }                 from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
-import { FieldBase }              from '../field-base';
-import { FieldControlService }    from '../field-control.service';
+import {FieldBase} from '../field-base';
+import {FieldControlService} from '../field-control.service';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  providers: [ FieldControlService ]
+  providers: [FieldControlService]
 })
 export class DynamicFormComponent implements OnInit {
 
+  @Input() field_groups: FieldBase<any>[][] = [];
+  job: FormBuilder;
+  payLoad = '';
+
+  constructor(private fcs: FieldControlService) {
+  }
+
+  ngOnInit() {
+    this.job = this.fcs.toFormGroup(this.field_groups);
+  }
+
+  onSubmit() {
+    this.payLoad = JSON.stringify(this.job.value);
+  }
+
+  /*
   @Input() fields: FieldBase<any>[] = [];
   form: FormGroup;
   payLoad = '';
@@ -23,12 +39,5 @@ export class DynamicFormComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.value);
-  }
+  }*/
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

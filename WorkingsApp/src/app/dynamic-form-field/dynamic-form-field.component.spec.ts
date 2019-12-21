@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DynamicFormFieldComponent } from './dynamic-form-field.component';
+import {DynamicFormFieldComponent} from './dynamic-form-field.component';
 
 describe('DynamicFormFieldComponent', () => {
   let component: DynamicFormFieldComponent;
@@ -8,9 +8,9 @@ describe('DynamicFormFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DynamicFormFieldComponent ]
+      declarations: [DynamicFormFieldComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
