@@ -9,12 +9,21 @@
     <input *ngSwitchCase="'textbox'" [formControlName]="field.key"
            [id]="field.key" [type]="get_type()">
 
-    <!-- Dropdown -->
-    <select *ngSwitchCase="'dropdown'" [id]="field.key" [formControlName]="field.key">
+    <!-- Select -->
+    <select *ngSwitchCase="'select'" [id]="field.key" [formControlName]="field.key">
       <option *ngFor="let opt of get_options()" [value]="opt.key">
         {{opt.value}}
       </option>
     </select>
+
+    <!-- DataList -->
+
+    <!-- Quantity -->
+
+    <!-- Measure -->
+
+    <!-- Slider -->
+
   </div>
 
   <!-- Error message -->

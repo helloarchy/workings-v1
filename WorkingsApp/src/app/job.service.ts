@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {DropdownField} from './field-dropdown';
+import {SelectField} from './field-select';
 import {TextboxField} from './field-textbox';
 import {FieldGroup} from "./field-group";
 

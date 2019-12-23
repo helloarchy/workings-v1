@@ -1,10 +1,10 @@
 import {FieldBase} from "./field-base";
 
 /**
- * Dropdown field
+ * Select field
  */
-export class DropdownField extends FieldBase<string> {
-  control_type = 'dropdown';
+export class SelectField extends FieldBase<string> {
+  control_type = 'select';
   options: { key: string, value: string }[] = [];
 
   constructor(options: {} = {}) {

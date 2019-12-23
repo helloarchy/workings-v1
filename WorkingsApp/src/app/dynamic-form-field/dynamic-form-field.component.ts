@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 
 import {FieldBase} from '../field-base';
-import {DropdownField} from "../field-dropdown";
+import {SelectField} from "../field-select";
 import {TextboxField} from "../field-textbox";
 
 /**
@@ -21,8 +21,8 @@ export class DynamicFormFieldComponent {
   ngOnInit() {
     if (this.field.control_type == "textbox") {
       this.field = this.field as TextboxField;
-    } else if (this.field.control_type == "dropdown") {
-      this.field = this.field as DropdownField;
+    } else if (this.field.control_type == "select") {
+      this.field = this.field as SelectField;
     }
   }
 
@@ -31,7 +31,7 @@ export class DynamicFormFieldComponent {
   }
 
   get_options() {
-    let temp: DropdownField = this.field as DropdownField;
+    let temp: SelectField = this.field as SelectField;
     return temp.options
   }
 
