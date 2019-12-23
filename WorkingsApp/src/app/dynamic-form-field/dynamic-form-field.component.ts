@@ -4,6 +4,7 @@ import {FormGroup} from '@angular/forms';
 import {FieldBase} from '../field-base';
 import {DropdownField} from "../field-dropdown";
 import {TextboxField} from "../field-textbox";
+import {FieldGroup} from "../field-group";
 
 @Component({
   selector: 'app-field',
@@ -13,6 +14,7 @@ import {TextboxField} from "../field-textbox";
 export class DynamicFormFieldComponent {
   @Input() field: FieldBase<any>;
   @Input() job: FormGroup;
+  @Input() group: Array<FieldBase<any>>;
 
   ngOnInit() {
     if (this.field.control_type == "textbox") {

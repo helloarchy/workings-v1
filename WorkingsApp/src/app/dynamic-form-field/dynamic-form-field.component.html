@@ -1,7 +1,7 @@
-<div [formGroup]="job">
+<div [formGroup]="job.controls['Details']">
+<!--<div [formGroup]="job">-->
 
-  <p>Debugging field options...</p>
-  <p>
+  <p>DEBUG:
     {{ field.key }}
     {{ field.control_type }}
     {{ field.value }}
@@ -14,16 +14,15 @@
     <p *ngSwitchCase="'textbox'">Text box? {{ field.control_type }}</p>
     <p *ngSwitchCase="'dropdown'">Drop down? {{ field.control_type }}</p>
 
-    <!--<input *ngSwitchCase="'textbox'" [formControlName]="field.key"
+    <input *ngSwitchCase="'textbox'" [formControlName]="field.key"
            [id]="field.key" [type]="get_type()">
 
     <select *ngSwitchCase="'dropdown'" [id]="field.key" [formControlName]="field.key">
       <option *ngFor="let opt of get_options()" [value]="opt.key">
         {{opt.value}}
       </option>
-    </select>-->
+    </select>
   </div>
 
   <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>
-  <div class="errorMessage">Herp</div>
 </div>

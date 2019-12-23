@@ -2,20 +2,13 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="job_groups">
     <!-- Create control form by creating field from each field in the service -->
     <div *ngFor="let group of job">
-      <!-- Group -->
-      <h3>Group = {{ group.key }}</h3>
-      <div *ngFor="let field of group.group" class="form-row">
-        <div>
-          <!-- Field -->
-          <p>Summary:
-          {{ field.key }}
-          {{ field.control_type }}
-          {{ field.value }}
-          {{ field.required }}
-          {{ field.label }}
-          </p>
-
-          <app-field [field]="field" [job]="job_groups"></app-field>
+      <div formGroupName="Details">
+        <!-- Group -->
+        <h3>Group = {{ group.key }}</h3>
+        <div *ngFor="let field of group.group" class="form-row">
+          <div>
+            <app-field [field]="field" [job]="job_groups" [group]="group.group"></app-field>
+          </div>
         </div>
       </div>
     </div>
