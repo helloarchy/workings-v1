@@ -1,18 +1,28 @@
 <div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="job">
-
+  <form (ngSubmit)="onSubmit()" [formGroup]="job_groups">
     <!-- Create control form by creating field from each field in the service -->
-    <div *ngFor="let field_group of field_groups">
+    <div *ngFor="let group of job">
       <!-- Group -->
-      <h3>Derp</h3>
-      <div *ngFor="let field of field_group" class="form-row">
-        <app-field [field]="field" [job]="job"></app-field>
+      <h3>Group = {{ group.key }}</h3>
+      <div *ngFor="let field of group.group" class="form-row">
+        <div>
+          <!-- Field -->
+          <p>Summary:
+          {{ field.key }}
+          {{ field.control_type }}
+          {{ field.value }}
+          {{ field.required }}
+          {{ field.label }}
+          </p>
+
+          <app-field [field]="field" [job]="job_groups"></app-field>
+        </div>
       </div>
     </div>
 
 
     <div class="form-row">
-      <button type="submit" [disabled]="!job.valid">Generate</button>
+      <button type="submit" [disabled]="!job_groups.valid">Generate</button>
     </div>
   </form>
 
@@ -20,3 +30,23 @@
     <strong>Saved the following values</strong><br>{{payLoad}}
   </div>
 </div>
+
+
+<!-- Original
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let field of fields" class="form-row">
+      <app-field [field]="field" [form]="form"></app-field>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>
+-->

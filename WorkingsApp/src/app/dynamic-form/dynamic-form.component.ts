@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 
-import {FieldBase} from '../field-base';
 import {FieldControlService} from '../field-control.service';
+import {FieldGroup} from "../field-group";
 
 @Component({
   selector: 'app-dynamic-form',
@@ -11,33 +11,51 @@ import {FieldControlService} from '../field-control.service';
 })
 export class DynamicFormComponent implements OnInit {
 
-  @Input() field_groups: FieldBase<any>[][] = [];
-  job: FormGroup;
+  @Input() job: Array<FieldGroup> = [];
+  job_groups: FormGroup; // Parse to form group
   payLoad = '';
 
   constructor(private fcs: FieldControlService) {
   }
 
   ngOnInit() {
-    this.job = this.fcs.to_form_group(this.field_groups);
+    console.log("TRYING TO FORM GROUP");
+    this.job_groups = this.fcs.to_form_group(this.job);
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.job.value);
+    // this.payLoad = JSON.stringify(this.job_groups.value);
+    // this.payLoad = JSON.stringify(this.job_groups);
+    console.log("Submit")
   }
 
   /*
-  @Input() fields: FieldBase<any>[] = [];
-  form: FormGroup;
-  payLoad = '';
+  import { Component, Input, OnInit }  from '@angular/core';
+  import { FormGroup }                 from '@angular/forms';
 
-  constructor(private qcs: FieldControlService) {  }
+  import { FieldBase }              from '../field-base';
+  import { FieldControlService }    from '../field-control.service';
 
-  ngOnInit() {
-    this.form = this.qcs.toFormGroup(this.fields);
+  @Component({
+    selector: 'app-dynamic-form',
+    templateUrl: './dynamic-form.component.html',
+    providers: [ FieldControlService ]
+  })
+  export class DynamicFormComponent implements OnInit {
+
+    @Input() fields: FieldBase<any>[] = [];
+    form: FormGroup;
+    payLoad = '';
+
+    constructor(private qcs: FieldControlService) {  }
+
+    ngOnInit() {
+      this.form = this.qcs.toFormGroup(this.fields);
+    }
+
+    onSubmit() {
+      this.payLoad = JSON.stringify(this.form.value);
+    }
   }
-
-  onSubmit() {
-    this.payLoad = JSON.stringify(this.form.value);
   }*/
 }

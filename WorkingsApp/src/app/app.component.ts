@@ -1,18 +1,18 @@
 import {Component} from '@angular/core';
-import {FieldService} from "./field.service";
-import {FieldBase} from "./field-base";
+import {JobService} from "./job.service";
+import {FieldGroup} from "./field-group";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [FieldService]
+  providers: [JobService]
 })
 
 export class AppComponent {
   title = 'app';
-  field_groups: FieldBase<any>[][];
+  job: Array<FieldGroup> = [];
 
-  constructor(service: FieldService) {
-    this.field_groups = service.get_field_groups();
+  constructor(service: JobService) {
+    this.job = service.get_field_groups();
   }
 }

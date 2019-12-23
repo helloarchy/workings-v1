@@ -4,8 +4,8 @@
 
   <!-- Main body -->
   <div class="container">
-    <!-- Control panel (form) -->
-    <app-dynamic-form [field_groups]="field_groups"></app-dynamic-form>
+    <!-- Control panel (form) - Pass job list in from JobService -->
+    <app-dynamic-form [job]="job"></app-dynamic-form>
 
     <!-- Drawing (printable page) -->
     <app-drawing></app-drawing>
