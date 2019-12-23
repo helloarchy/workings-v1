@@ -2,6 +2,9 @@ import {Component} from '@angular/core';
 import {JobService} from "./job.service";
 import {FieldGroup} from "./field-group";
 
+/**
+ * Main component for the app
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

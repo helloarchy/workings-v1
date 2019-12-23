@@ -1,22 +1,15 @@
-<div [formGroup]="job.controls['Details']">
-<!--<div [formGroup]="job">-->
-
-  <p>DEBUG:
-    {{ field.key }}
-    {{ field.control_type }}
-    {{ field.value }}
-    {{ field.required }}
-    {{ field.label }}
-  </p>
-
+<div [formGroup]="job.controls[group]"> <!-- Ignore type warning -->
+  <!-- Field -->
   <label [attr.for]="field.key">{{field.label}}</label>
-  <div [ngSwitch]="field.control_type">
-    <p *ngSwitchCase="'textbox'">Text box? {{ field.control_type }}</p>
-    <p *ngSwitchCase="'dropdown'">Drop down? {{ field.control_type }}</p>
 
+  <!-- Switch/case for field type -->
+  <div [ngSwitch]="field.control_type">
+
+    <!-- Textbox -->
     <input *ngSwitchCase="'textbox'" [formControlName]="field.key"
            [id]="field.key" [type]="get_type()">
 
+    <!-- Dropdown -->
     <select *ngSwitchCase="'dropdown'" [id]="field.key" [formControlName]="field.key">
       <option *ngFor="let opt of get_options()" [value]="opt.key">
         {{opt.value}}
@@ -24,5 +17,6 @@
     </select>
   </div>
 
-  <div class="errorMessage" *ngIf="!isValid">{{field.label}} is required</div>
+  <!-- Error message -->
+  <div class="errorMessage" *ngIf="!is_valid">{{field.label}} is required</div>
 </div>

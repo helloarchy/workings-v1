@@ -1,3 +1,6 @@
+/**
+ * Superclass for all field types for the form
+ */
 export class FieldBase<T> {
   value: T;
   key: string;

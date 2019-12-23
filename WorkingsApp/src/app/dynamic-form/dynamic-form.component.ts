@@ -9,6 +9,10 @@ import {FieldGroup} from "../field-group";
   templateUrl: './dynamic-form.component.html',
   providers: [FieldControlService]
 })
+
+/**
+ * Overall root form component
+ */
 export class DynamicFormComponent implements OnInit {
 
   @Input() job: Array<FieldGroup> = [];
@@ -19,43 +23,10 @@ export class DynamicFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("TRYING TO FORM GROUP");
     this.job_groups = this.fcs.to_form_group(this.job);
   }
 
   onSubmit() {
-    // this.payLoad = JSON.stringify(this.job_groups.value);
-    // this.payLoad = JSON.stringify(this.job_groups);
-    console.log("Submit")
+    this.payLoad = JSON.stringify(this.job_groups.value);
   }
-
-  /*
-  import { Component, Input, OnInit }  from '@angular/core';
-  import { FormGroup }                 from '@angular/forms';
-
-  import { FieldBase }              from '../field-base';
-  import { FieldControlService }    from '../field-control.service';
-
-  @Component({
-    selector: 'app-dynamic-form',
-    templateUrl: './dynamic-form.component.html',
-    providers: [ FieldControlService ]
-  })
-  export class DynamicFormComponent implements OnInit {
-
-    @Input() fields: FieldBase<any>[] = [];
-    form: FormGroup;
-    payLoad = '';
-
-    constructor(private qcs: FieldControlService) {  }
-
-    ngOnInit() {
-      this.form = this.qcs.toFormGroup(this.fields);
-    }
-
-    onSubmit() {
-      this.payLoad = JSON.stringify(this.form.value);
-    }
-  }
-  }*/
 }

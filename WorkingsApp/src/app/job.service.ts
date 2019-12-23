@@ -30,6 +30,22 @@ export class JobService {
           label: 'Email',
           type: 'email'
         })
+      ]),
+      new FieldGroup("Dimensions", [
+        new TextboxField({
+          key: 'width',
+          label: 'Width',
+          value: '123.4',
+          required: true
+        }),
+      ]),
+      new FieldGroup("Batty boo", [
+        new TextboxField({
+          key: 'name',
+          label: 'name',
+          value: 'derp',
+          required: true
+        })
       ])
     ];
 
