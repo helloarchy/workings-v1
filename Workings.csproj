@@ -26,6 +26,8 @@
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
         <None Include="WorkingsApp\src\app\field-base.ts" />
         <None Include="WorkingsApp\src\app\field-control.service.ts" />
+        <None Include="WorkingsApp\src\app\field-measure.ts" />
+        <None Include="WorkingsApp\src\app\field-quantity.ts" />
         <None Include="WorkingsApp\src\app\field-select.ts" />
         <None Include="WorkingsApp\src\app\field-group.ts" />
         <None Include="WorkingsApp\src\app\field-textbox.ts" />

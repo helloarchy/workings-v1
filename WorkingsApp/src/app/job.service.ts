@@ -3,6 +3,8 @@ import {Injectable} from '@angular/core';
 import {SelectField} from './field-select';
 import {TextboxField} from './field-textbox';
 import {FieldGroup} from "./field-group";
+import {MeasureField} from "./field-measure";
+import {QuantityField} from "./field-quantity";
 
 @Injectable()
 export class JobService {
@@ -33,7 +35,7 @@ export class JobService {
           required: true
         }),
         /* Number of blinds */
-        new TextboxField({
+        new QuantityField({
           key: 'num_blinds',
           label: 'Number of blinds',
           value: '1',
@@ -45,45 +47,40 @@ export class JobService {
       /* DIMENSION */
       new FieldGroup("Dimensions", [
         /* Width */
-        new TextboxField({
+        new MeasureField({
           key: 'width',
           label: 'Width',
           value: '123.4',
-          type: 'number',
           required: true
         }),
         /* Height */
-        new TextboxField({
+        new MeasureField({
           key: 'height',
           label: 'Height',
           value: '123.4',
-          type: 'number',
           required: true
         }),
         /* Number of widths */
-        new TextboxField({
+        new QuantityField({
           key: 'num_widths',
           label: 'Number of widths',
           value: '1',
-          type: 'number'
         })
       ]),
 
       /* FABRIC */
       new FieldGroup("Fabric", [
         /* Width */
-        new TextboxField({
+        new MeasureField({
           key: 'width',
           label: 'Width',
           value: '123.4',
-          type: 'number'
         }),
         /* Repeat */
-        new TextboxField({
+        new MeasureField({
           key: 'repeat',
           label: 'Repeat',
           value: '12.3',
-          type: 'number'
         })
       ]),
 
@@ -112,11 +109,10 @@ export class JobService {
           value: ''
         }),
         /* Depth */
-        new TextboxField({
+        new MeasureField({
           key: 'depth',
           label: 'Depth',
           value: '',
-          type: 'number'
         })
       ]),
 
@@ -136,58 +132,33 @@ export class JobService {
         }),
 
         /* Waterfall increment (if type) */
-        new TextboxField({
+        new MeasureField({
           key: 'increment',
           label: 'Increment',
           value: '2.5',
-          type: 'number',
           hidden: true
-        }),
-        new SelectField({
-          key: 'unit_waterfall',
-          value: 'cm',
-          required: true,
-          hidden: true,
-          options: [
-            {key: 'in', value: 'in'},
-            {key: 'mm', value: 'mm'},
-            {key: 'cm', value: 'cm'}
-          ]
         }),
 
         /* Showing hem reveal (if type) */
-        new TextboxField({
+        new MeasureField({
           key: 'reveal',
           label: 'Reveal',
           value: '2.5',
-          type: 'number',
           hidden: true
-        }),
-        new SelectField({
-          key: 'unit_showing_hem',
-          value: 'cm',
-          required: true,
-          hidden: true,
-          options: [
-            {key: 'in', value: 'in'},
-            {key: 'mm', value: 'mm'},
-            {key: 'cm', value: 'cm'}
-          ]
         }),
 
         /* Folds */
-        new TextboxField({
+        new QuantityField({
           key: 'folds',
           label: 'Folds',
           value: '4',
-          type: 'number'
         })
       ]),
 
       /* POCKETS */
       new FieldGroup("Pockets", [
         /* Depth */
-        new TextboxField({
+        new MeasureField({
           key: 'depth',
           label: 'Depth',
           value: ''
@@ -203,16 +174,17 @@ export class JobService {
           value: ''
         }),
         /* Margin */
-        new TextboxField({
+        new MeasureField({
           key: 'margin',
           label: 'Margin',
           value: ''
         }),
         /* Count */
-        new TextboxField({
+        new QuantityField({
           key: 'count',
           label: 'Count',
-          value: ''
+          value: '',
+          min: 2,
         })
       ]),
     ];

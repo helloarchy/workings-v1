@@ -4,10 +4,12 @@
 
 <!-- Main body -->
 <div class="container">
-  <!-- Control panel (form) - Pass job list in from JobService -->
-  <app-dynamic-form [job]="job"></app-dynamic-form>
+  <div class="row">
+    <!-- Control panel (form) - Pass job list in from JobService -->
+    <app-dynamic-form class="col col-md-auto" [job]="job"></app-dynamic-form>
 
-  <!-- Drawing (printable page) -->
-  <app-drawing></app-drawing>
+    <!-- Drawing (printable page) -->
+    <app-drawing class="col col-md-8"></app-drawing>
+  </div>
 </div>
 </body>

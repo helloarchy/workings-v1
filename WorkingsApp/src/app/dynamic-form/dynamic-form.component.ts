@@ -7,7 +7,8 @@ import {FieldGroup} from "../field-group";
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  providers: [FieldControlService]
+  providers: [FieldControlService],
+  styleUrls: ['./dynamic-form.component.css']
 })
 
 /**

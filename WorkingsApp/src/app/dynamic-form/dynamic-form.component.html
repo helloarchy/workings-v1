@@ -1,23 +1,26 @@
-<div>
+<div class="dynamic_form">
   <form (ngSubmit)="onSubmit()" [formGroup]="job_groups">
 
     <!-- Create control form by creating field from each field in the service -->
-    <div *ngFor="let group of job">
-      <div formGroupName="{{group.key}}">
+    <div class="" *ngFor="let group of job">
+      <div formGroupName="{{group.key}}" class="">
 
         <!-- Group -->
-        <h3>{{group.key}}</h3>
-        <div *ngFor="let field of group.group" class="form-row">
+        <h5>{{group.key}}</h5>
+        <div *ngFor="let field of group.group">
 
           <!-- Field -->
           <app-field [field]="field" [job]="job_groups" [group]="group"></app-field>
         </div>
       </div>
+      <hr/>
     </div>
 
     <!-- Submit button(s) -->
-    <div class="form-row">
-      <button type="submit" [disabled]="!job_groups.valid">Generate</button>
+    <div class="">
+      <button class="btn btn-primary mb-2" type="submit" [disabled]="!job_groups.valid">
+        Generate
+      </button>
     </div>
   </form>
 

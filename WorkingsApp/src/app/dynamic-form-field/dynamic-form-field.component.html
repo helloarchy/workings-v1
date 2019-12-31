@@ -1,4 +1,4 @@
-<div [formGroup]="job.controls[group.key]" [hidden]=field.hidden>
+<div [formGroup]="job.controls[group.key]" class="form-group" [hidden]=field.hidden>
   <!-- Field -->
   <label [attr.for]="field.key">{{field.label}}</label>
 
@@ -6,26 +6,52 @@
   <div [ngSwitch]="field.control_type">
 
     <!-- Textbox -->
-    <input *ngSwitchCase="'textbox'" [formControlName]="field.key"
+    <input class="form-control-sm" *ngSwitchCase="'textbox'" [formControlName]="field.key"
            [id]="field.key" [type]="get_type()">
 
     <!-- Select -->
-    <select *ngSwitchCase="'select'" [id]="field.key" [formControlName]="field.key">
+    <select class="form-control-sm" *ngSwitchCase="'select'" [id]="field.key"
+            [formControlName]="field.key">
       <option *ngFor="let opt of get_options()" [value]="opt.key">
         {{opt.value}}
       </option>
     </select>
 
-    <!-- DataList -->
+    <!-- Measure -->
+    <div *ngSwitchCase="'number'" class="form-row field-measure">
+      <!-- Value field -->
+      <input class="form-control-sm" [formControlName]="field.key"
+             [id]="field.key" type="number">
+      <!-- Unit select -->
+      <select class="form-control-sm">
+        <option value="in">in</option>
+        <option value="mm">mm</option>
+        <option value="cm">cm</option>
+      </select>
+    </div>
 
     <!-- Quantity -->
+    <div *ngSwitchCase="'quantity'" class="form-row field-quantity">
+      <!-- Value field -->
+      <input [id]="field.key" [formControlName]="field.key" class="form-control-sm"
+             type="number" value="{{get_quantity()}}" step="{{get_step()}}"
+             min="{{get_min()}}" max="{{get_max()}}">
+      <!-- Increment -->
+      <input class="form-control-sm button_increment" type="button" value="+" (click)="quantity_increment(field.key)">
+      <!-- Decrement -->
+      <input class="form-control-sm button_increment" type="button" value="&minus;" (click)="quantity_decrement(field.key)">
 
-    <!-- Measure -->
+    </div>
+
+
+    <!-- DataList -->
 
     <!-- Slider -->
 
   </div>
 
   <!-- Error message -->
-  <div class="errorMessage" *ngIf="!is_valid">{{field.label}} is required</div>
+  <small class="is-invalid" *ngIf="!is_valid">
+    {{field.label}} is required
+  </small>
 </div>
