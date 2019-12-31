@@ -123,13 +123,58 @@ export class JobService {
       /* STACK */
       new FieldGroup("Stack", [
         /* Type */
-        new TextboxField({
+        new SelectField({
           key: 'type',
           label: 'Type',
-          value: 'Normal',
-          required: true
+          value: 'normal',
+          required: true,
+          options: [
+            {key: 'normal', value: 'Normal'},
+            {key: 'waterfall', value: 'Waterfall'},
+            {key: 'showing_hem', value: 'Showing Hem'}
+          ]
         }),
-        /* TODO: Compensate for waterfall et al */
+
+        /* Waterfall increment (if type) */
+        new TextboxField({
+          key: 'increment',
+          label: 'Increment',
+          value: '2.5',
+          type: 'number',
+          hidden: true
+        }),
+        new SelectField({
+          key: 'unit_waterfall',
+          value: 'cm',
+          required: true,
+          hidden: true,
+          options: [
+            {key: 'in', value: 'in'},
+            {key: 'mm', value: 'mm'},
+            {key: 'cm', value: 'cm'}
+          ]
+        }),
+
+        /* Showing hem reveal (if type) */
+        new TextboxField({
+          key: 'reveal',
+          label: 'Reveal',
+          value: '2.5',
+          type: 'number',
+          hidden: true
+        }),
+        new SelectField({
+          key: 'unit_showing_hem',
+          value: 'cm',
+          required: true,
+          hidden: true,
+          options: [
+            {key: 'in', value: 'in'},
+            {key: 'mm', value: 'mm'},
+            {key: 'cm', value: 'cm'}
+          ]
+        }),
+
         /* Folds */
         new TextboxField({
           key: 'folds',

@@ -1,4 +1,4 @@
-<div [formGroup]="job.controls[group]"> <!-- Ignore type warning -->
+<div [formGroup]="job.controls[group.key]" [hidden]=field.hidden>
   <!-- Field -->
   <label [attr.for]="field.key">{{field.label}}</label>
 

@@ -7,5 +7,3 @@ used in the creation of roman blinds.
 - .NET Core server side
 - Sub-domain *workings* under __archy.dev__ available at 
 [workings.archy.dev](https://workings.archy.dev/)
-
-d
