@@ -111,22 +111,19 @@ export class DynamicFormFieldComponent {
     return Number.parseInt(temp.value)
   }
 
-  quantity_increment(): void {
+  /**
+   * Increment or decrement the Quantity field
+   * @param increment, whether to increment or decrement
+   */
+  do_step(increment: boolean): void {
     let temp: QuantityField = this.field as QuantityField;
     let job_field = this.job.get(this.group.key).get(this.field.key);
     let current_value: number = Number.parseInt(job_field.value);
     if (isNaN(current_value)) current_value = temp.min;
-    if (current_value < temp.max) {
-      job_field.setValue(current_value + temp.step);
-    }
-  }
 
-  quantity_decrement(): void {
-    let temp: QuantityField = this.field as QuantityField;
-    let job_field = this.job.get(this.group.key).get(this.field.key);
-    let current_value: number = Number.parseInt(job_field.value);
-    if (isNaN(current_value)) current_value = temp.min;
-    if (current_value > temp.min) {
+    if (increment && current_value < temp.max) {
+      job_field.setValue(current_value + temp.step);
+    } else if (!increment && current_value > temp.min) {
       job_field.setValue(current_value - temp.step);
     }
   }

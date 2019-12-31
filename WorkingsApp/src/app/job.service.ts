@@ -17,30 +17,26 @@ export class JobService {
         new TextboxField({
           key: 'client',
           label: 'Client',
-          value: '',
-          required: true
+          value: ''
         }),
         /* Customer */
         new TextboxField({
           key: 'customer',
           label: 'Customer',
-          value: '',
-          required: true
+          value: ''
         }),
         /* Reference */
         new TextboxField({
           key: 'reference',
           label: 'Reference',
-          value: '',
-          required: true
+          value: ''
         }),
         /* Number of blinds */
         new QuantityField({
           key: 'num_blinds',
           label: 'Number of blinds',
           value: '1',
-          type: 'number',
-          required: true
+          min: 1
         }),
       ]),
 
@@ -65,6 +61,7 @@ export class JobService {
           key: 'num_widths',
           label: 'Number of widths',
           value: '1',
+          min: 1
         })
       ]),
 
@@ -152,6 +149,7 @@ export class JobService {
           key: 'folds',
           label: 'Folds',
           value: '4',
+          min: 1
         })
       ]),
 
@@ -183,7 +181,7 @@ export class JobService {
         new QuantityField({
           key: 'count',
           label: 'Count',
-          value: '',
+          value: 2,
           min: 2,
         })
       ]),

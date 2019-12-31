@@ -37,9 +37,9 @@
              type="number" value="{{get_quantity()}}" step="{{get_step()}}"
              min="{{get_min()}}" max="{{get_max()}}">
       <!-- Increment -->
-      <input class="form-control-sm button_increment" type="button" value="+" (click)="quantity_increment(field.key)">
+      <input class="form-control-sm button_increment" type="button" value="+" (click)="do_step(true)">
       <!-- Decrement -->
-      <input class="form-control-sm button_increment" type="button" value="&minus;" (click)="quantity_decrement(field.key)">
+      <input class="form-control-sm button_increment" type="button" value="&minus;" (click)="do_step(false)">
 
     </div>
 
